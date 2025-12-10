@@ -24,7 +24,7 @@ def change_image(url):
     image_label.config(image=tk_img)
     image_label.image = tk_img
 def getChar(char):
-    response = requests.get(f"https://rickandmortyapi.com/api/character")
+    response = requests.get("https://rickandmortyapi.com/api/character")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
