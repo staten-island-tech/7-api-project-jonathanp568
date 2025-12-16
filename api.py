@@ -2,7 +2,6 @@ import requests
 import tkinter as tk
 from PIL import Image, ImageTk
 from io import BytesIO
-
 root = tk.Tk()
 root.geometry("600x700")
 root.title("Rick and Morty Index")
@@ -34,12 +33,12 @@ def getChar(char, chars):
         print("Error fetching data!")
         return None
     data = response.json()
-    name = "name", data["results"][chars]["name"],
-    status = "status", data["results"][chars]["status"],
-    species = "species", data["results"][chars]["species"],
-    origin = "origin", data["results"][chars]["origin"]["name"]
+    name = data["results"][chars]["name"],
+    status = data["results"][chars]["status"],
+    species = data["results"][chars]["species"],
+    origin = data["results"][chars]["origin"]["name"]
     images = data["results"][chars]["image"]
-    result_label.config(text = f"{name}, {status}, {species}, {origin}")
+    result_label.config(text = f"Name: {name}, Status: {status}, Species: {species}, Origin: {origin}")
     change_image(images)
 def getinput():
     user_text = entry_box.get()
